@@ -2,11 +2,12 @@
 # @param {Integer} target
 # @return {Integer[]}
 def two_sum(nums, target)
+    diff = Hash.new
     for i in 0..nums.length-1 do
-        for j in i+1..nums.length-1 do
-            if nums[i] + nums[j] == target
-                return [i, j]
-            end
+        if !diff.has_key?(target - nums[i])
+            diff[nums[i]] = i
+        else
+            return [diff[target - nums[i]], i]  
         end    
     end
 end
