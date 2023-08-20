@@ -5,23 +5,14 @@ def is_palindrome(x)
         return false
     end
 
-    arr = Array.new
+    rev = 0
+    input = x
 
-    while x >= 0 do
-        digit = x % 10
-        puts digit
-        arr << digit
-        x = x / 10
-        if x == 0
-            break
-        end
+    while input > 0 do
+        digit = input % 10
+        rev = (rev * 10) + digit
+        input = input / 10
     end
-    j = arr.length - 1
-    for i in 0..j/2 do
-        puts i 
-        if arr[i] != arr[j-i]
-            return false
-        end
-    end
-    return true
+    
+    return x == rev
 end
